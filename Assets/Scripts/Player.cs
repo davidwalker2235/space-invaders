@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     private GameController gameController;
 
+    public AudioSource laserSound; // Reference to the AudioSource component
     void Start()
     {
         gameController = controller.GetComponent<GameController>();
@@ -36,7 +37,9 @@ public class Player : MonoBehaviour
 
     void FireLaser()
     {
+
         Instantiate(laserPrefab, transform.position + new Vector3(0, 0f, 0), Quaternion.identity);
+        laserSound.Play();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
