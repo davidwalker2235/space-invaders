@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
     private GameController gameController;
 
     public AudioSource laserSound; // Reference to the AudioSource component
+
+    public AudioSource gameOverSound; // Reference to the AudioSource component
     void Start()
     {
         gameController = controller.GetComponent<GameController>();
@@ -51,6 +53,7 @@ public class Player : MonoBehaviour
         else if (gameController.lifes == 0)
         {
             gameController.isPlayerAlive = false;
+            gameOverSound.Play();
             Destroy(this.gameObject);
         }
     }

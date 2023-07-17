@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour
     public int lifes;
     public int score;
     public bool isWinner;
+
+
+    public AudioSource winGameSound; // Reference to the AudioSource component
     void Awake()
     {
         lifes = 3;
@@ -18,5 +21,6 @@ public class GameController : MonoBehaviour
     public void WinGame()
     {
         isWinner = true;
+        winGameSound.Play();
     }
 }

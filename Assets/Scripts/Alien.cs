@@ -7,6 +7,7 @@ public class Alien : MonoBehaviour
 {
     public GameObject gameController;
     private GameController controller;
+    public AudioSource alienZappedSound; // Reference to the AudioSource component
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class Alien : MonoBehaviour
         if(collision.tag == "player_laser")
         {
             Destroy(collision.gameObject);
+            alienZappedSound.Play();
             controller.score = controller.score + 100;
             Animator explosionAnimation = gameObject.GetComponent<Animator>();
             explosionAnimation.SetBool("isTriggered", true);
