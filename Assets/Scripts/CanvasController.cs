@@ -29,6 +29,7 @@ public class CanvasController : MonoBehaviour
         {
             gameOverText.SetActive(true);
             Time.timeScale = 0;
+            controller.LoseGame();
         }
         if (controller.isWinner && controller.isPlayerAlive)
         {

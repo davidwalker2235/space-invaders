@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.VersionControl;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -15,7 +17,7 @@ public class Player : MonoBehaviour
 
     public AudioSource laserSound; // Reference to the AudioSource component
 
-    public AudioSource gameOverSound; // Reference to the AudioSource component
+   
     void Start()
     {
         gameController = controller.GetComponent<GameController>();
@@ -41,6 +43,7 @@ public class Player : MonoBehaviour
     {
 
         Instantiate(laserPrefab, transform.position + new Vector3(0, 0f, 0), Quaternion.identity);
+          Console.WriteLine("Firing");
         laserSound.Play();
     }
 
@@ -49,11 +52,12 @@ public class Player : MonoBehaviour
          if (collision.tag == "alien_laser" || collision.tag == "alien" && gameController.lifes > 0)
         {
             gameController.lifes--;
+            Console.WriteLine("gameController.lifes--");
         }
         else if (gameController.lifes == 0)
         {
+            Console.WriteLine("DEAD");
             gameController.isPlayerAlive = false;
-            gameOverSound.Play();
             Destroy(this.gameObject);
         }
     }

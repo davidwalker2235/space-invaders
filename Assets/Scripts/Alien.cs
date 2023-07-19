@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
+using System;
 using UnityEngine;
 
 public class Alien : MonoBehaviour
@@ -19,7 +21,8 @@ public class Alien : MonoBehaviour
         if(collision.tag == "player_laser")
         {
             Destroy(collision.gameObject);
-            alienZappedSound.Play();
+           alienZappedSound.Play();
+            Console.WriteLine("Zapping aliens");
             controller.score = controller.score + 100;
             Animator explosionAnimation = gameObject.GetComponent<Animator>();
             explosionAnimation.SetBool("isTriggered", true);
