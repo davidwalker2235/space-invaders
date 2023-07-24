@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public AudioSource laserSound; // Reference to the AudioSource component
 
    
-    void Start()
+    void Start()                  
     {
         gameController = controller.GetComponent<GameController>();
     }
