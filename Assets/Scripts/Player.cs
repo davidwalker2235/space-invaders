@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         {
             gameController.lifes--;
             System.Diagnostics.Debug.WriteLine("gameController.lifes"+ gameController.lifes);
-            ouch.Play();
+            ouch.Play(); // WIP I dont emit the right "ouch sound" here
         }
         else if (gameController.lifes <= 0)
         {
