@@ -17,7 +17,7 @@ public class CanvasController : MonoBehaviour
     private TextMeshProUGUI lifesText;
     private TextMeshProUGUI score;
     private bool CallOnce = true; // Ugly global ---refactor please
-
+    public AudioSource winGameSound; // Reference to the AudioSource component
     void Start()
     {
         controller = gameController.GetComponent<GameController>();
@@ -43,6 +43,12 @@ public class CanvasController : MonoBehaviour
         {
             youWinText.SetActive(true);
             Time.timeScale = 0;
+            if (true == CallOnce)
+            {
+                System.Diagnostics.Debug.WriteLine("This is a Win Game  message.");
+                winGameSound.Play();
+                CallOnce = false;
+            }
         }
         lifesText.SetText(controller.lifes.ToString());
         score.SetText(controller.score.ToString());
