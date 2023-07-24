@@ -15,7 +15,7 @@ public class House : MonoBehaviour
     {
         spritesCounter = 0;
 
-        house_damage = AudioSource.GetComponent<AudioSource>();
+        //house_damage = AudioSource.GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
