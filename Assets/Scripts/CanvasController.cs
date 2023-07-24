@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
+
 public class CanvasController : MonoBehaviour
 {
     public GameObject gameController;
@@ -14,6 +16,7 @@ public class CanvasController : MonoBehaviour
     public GameObject youWinText;
     private TextMeshProUGUI lifesText;
     private TextMeshProUGUI score;
+    private bool CallOnce = true; // Ugly global ---refactor please
 
     void Start()
     {
@@ -29,7 +32,12 @@ public class CanvasController : MonoBehaviour
         {
             gameOverText.SetActive(true);
             Time.timeScale = 0;
-            controller.LoseGame();
+            if (true ==CallOnce)
+            {
+                controller.LoseGame();
+                CallOnce = false;
+            }
+            
         }
         if (controller.isWinner && controller.isPlayerAlive)
         {
