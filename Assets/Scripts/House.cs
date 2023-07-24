@@ -32,7 +32,25 @@ public class House : MonoBehaviour
             spriteRenderer.sprite = sprites[spritesCounter];
             System.Diagnostics.Debug.WriteLine("This is a Damage House  message.");
             spritesCounter++;
-            house_damage.Play();
+
+            try
+            {
+                // Your code block goes here
+                house_damage.Play();
+            }
+            catch (ArgumentNullException ex)
+            {
+                // Handle the ArgumentNullException here
+                System.Diagnostics.Debug.WriteLine("ArgumentNullException caught: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions, if needed
+                System.Diagnostics.Debug.WriteLine("Exception caught: " + ex.Message);
+            }
+
+
+
         }
         else {
             Destroy(this.gameObject);
