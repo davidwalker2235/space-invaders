@@ -16,9 +16,10 @@ public class Player : MonoBehaviour
     private GameController gameController;
 
     public AudioSource laserSound; // Reference to the AudioSource component
+    public AudioSource ouch; // Reference to the AudioSource component
 
-   
-    void Start()
+
+    void Start()                  
     {
         gameController = controller.GetComponent<GameController>();
     }
@@ -32,7 +33,7 @@ public class Player : MonoBehaviour
         };
     }
 
-    void CalculateMovement()
+    void CalculateMovement()  
     {
         float horizontal = Input.GetAxis("Horizontal");
         transform.Translate(new Vector3(horizontal, 0, 0) * speed * Time.deltaTime);
@@ -43,18 +44,19 @@ public class Player : MonoBehaviour
     {
 
         Instantiate(laserPrefab, transform.position + new Vector3(0, 0f, 0), Quaternion.identity);
-          Console.WriteLine("Firing");
+        System.Diagnostics.Debug.WriteLine("Firing");
         laserSound.Play();
-    }
+    } 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
          if (collision.tag == "alien_laser" || collision.tag == "alien" && gameController.lifes > 0)
         {
             gameController.lifes--;
-            Console.WriteLine("gameController.lifes--");
+            System.Diagnostics.Debug.WriteLine("gameController.lifes"+ gameController.lifes);
+            ouch.Play(); // WIP I dont emit the right "ouch sound" here
         }
-        else if (gameController.lifes == 0)
+        else if (gameController.lifes <= 0)
         {
             Console.WriteLine("DEAD");
             gameController.isPlayerAlive = false;

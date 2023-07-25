@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
     public bool isWinner;
 
     public AudioSource gameOverSound; // Reference to the AudioSource component
-    public AudioSource winGameSound; // Reference to the AudioSource component
+
     void Awake()
     {
         lifes = 3;
@@ -22,15 +22,14 @@ public class GameController : MonoBehaviour
     public void WinGame()
     {
         isWinner = true;
-        winGameSound.Play();
     }
 
 
     public void LoseGame()
-    {
+    { 
         isWinner = false;
         gameOverSound.Play();
-        System.Diagnostics.Debug.WriteLine("This is a LoseGamee  message.");
+        System.Diagnostics.Debug.WriteLine("This is a Lose Game  message.");
 
     }
 }

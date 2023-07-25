@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+
+
 public class CanvasController : MonoBehaviour
 {
     public GameObject gameController;
@@ -14,7 +16,8 @@ public class CanvasController : MonoBehaviour
     public GameObject youWinText;
     private TextMeshProUGUI lifesText;
     private TextMeshProUGUI score;
-
+    private bool CallOnce = true; // Ugly global ---refactor please
+    public AudioSource winGameSound; // Reference to the AudioSource component
     void Start()
     {
         controller = gameController.GetComponent<GameController>();
@@ -29,12 +32,23 @@ public class CanvasController : MonoBehaviour
         {
             gameOverText.SetActive(true);
             Time.timeScale = 0;
-            controller.LoseGame();
+            if (true ==CallOnce)
+            {
+                controller.LoseGame();
+                CallOnce = false;
+            }
+            
         }
         if (controller.isWinner && controller.isPlayerAlive)
         {
             youWinText.SetActive(true);
             Time.timeScale = 0;
+            if (true == CallOnce)
+            {
+                System.Diagnostics.Debug.WriteLine("This is a Win Game  message.");
+                winGameSound.Play();
+                CallOnce = false;
+            }
         }
         lifesText.SetText(controller.lifes.ToString());
         score.SetText(controller.score.ToString());
