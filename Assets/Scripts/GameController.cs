@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
 
 
     public void LoseGame()
-    {
+    { 
         isWinner = false;
         gameOverSound.Play();
         System.Diagnostics.Debug.WriteLine("This is a Lose Game  message.");

@@ -14,6 +14,7 @@ public class Alien : MonoBehaviour
     private void Start()
     {
         controller = gameController.GetComponent<GameController>();
+        alienZappedSound = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -21,7 +22,7 @@ public class Alien : MonoBehaviour
         if(collision.tag == "player_laser")
         {
             Destroy(collision.gameObject);
-            //alienZappedSound.Play(); // BUG this line cause the alient not to be killed!
+            alienZappedSound.Play(); // BUG this line cause the alient not to be killed!
             System.Diagnostics.Debug.WriteLine("Zapping aliens");
             controller.score = controller.score + 100;
             Animator explosionAnimation = gameObject.GetComponent<Animator>();
