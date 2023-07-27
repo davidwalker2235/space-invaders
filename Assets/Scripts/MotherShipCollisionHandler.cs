@@ -40,4 +40,5 @@ public class MotherShipCollisionHandler : MonoBehaviour
             // GameManager.Instance.IncreaseScore(scoreBonus);
         }
     }
+
 }

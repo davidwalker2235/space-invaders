@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MotherShipController : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed = 2.5f;
     public float startPositionX = -10f;
     public float endPositionX = 10f;
 
