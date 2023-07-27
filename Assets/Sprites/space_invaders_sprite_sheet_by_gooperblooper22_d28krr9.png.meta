@@ -473,7 +473,7 @@ TextureImporter:
         width: 90
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -481,6 +481,27 @@ TextureImporter:
       bones: []
       spriteID: 6f83af68667f694478c382303b62b878
       internalID: 1058441600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motherShip
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 1790
+        width: 48
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0179127c97b6ee04ead5cfd76df080ab
+      internalID: 2117195561
       vertices: []
       indices: 
       edges: []
@@ -506,6 +527,7 @@ TextureImporter:
       casa2: -1724643326
       casa1: 1636729549
       alien1_1: -1033665040
+      motherShip: 2117195561
       space_invaders_sprite_sheet_by_gooperblooper22_d28krr9_8: 1457741002
       nave: 1399075308
       space_invaders_sprite_sheet_by_gooperblooper22_d28krr9_10: 1285463123

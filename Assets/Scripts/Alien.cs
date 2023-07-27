@@ -19,14 +19,15 @@ public class Alien : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "player_laser")
+        if (collision.tag == "player_laser")
         {
             Destroy(collision.gameObject);
             alienZappedSound.Play(); // BUG this line cause the alient not to be killed!
-            System.Diagnostics.Debug.WriteLine("Zapping aliens");
+            System.Diagnostics.Debug.WriteLine("Zapping alient");
             controller.score = controller.score + 100;
             Animator explosionAnimation = gameObject.GetComponent<Animator>();
             explosionAnimation.SetBool("isTriggered", true);
         }
+   
     }
 }

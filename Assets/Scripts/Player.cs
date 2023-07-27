@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
          if (collision.tag == "alien_laser" || collision.tag == "alien" && gameController.lifes > 0)
         {
             gameController.lifes--;
-            System.Diagnostics.Debug.WriteLine("gameController.lifes"+ gameController.lifes);
+             System.Diagnostics.Debug.WriteLine("gameController.lifes"+ gameController.lifes);
             ouch.Play(); // WIP I dont emit the right "ouch sound" here
         }
         else if (gameController.lifes <= 0)
